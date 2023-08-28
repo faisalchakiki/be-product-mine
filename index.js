@@ -11,7 +11,7 @@ app.use(express.json({ extended: true })); //parse data
 app.use(express.urlencoded({ extended: true })); //parse data
 app.use("/", routes);
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World!. Welcome to Backend Product MINE, (success to access)')
 })
 
 app.listen(port, () => {

@@ -1,8 +1,8 @@
 const express = require('express')
 const routes = express.Router()
 
-const todoRouter = require('./todoRouter.js')
+const productRouter = require('./productRouter.js')
 
-routes.use('/todos', todoRouter)
+routes.use('/products', productRouter)
 
 module.exports = routes
