@@ -5,7 +5,6 @@ const { filterCategorys, filterPages, filterSearch } = require('../helper/filter
 
 const getProducts = (req, res) => {
   const {search, category, limit, page} = req.query
-  console.log(category)
   let resultDataTemp;
   if(search){
     resultDataTemp = filterSearch(dataProducts, search)
@@ -17,7 +16,7 @@ const getProducts = (req, res) => {
     resultDataTemp = dataProducts
     resultData = filterPages(resultDataTemp, page, limit)
   }
-
+  
   try {
     return res.status(200).json({
       page: resultData.pagesNumber,
@@ -27,6 +26,7 @@ const getProducts = (req, res) => {
       results: resultData.data,
     });
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
       success: false,
       message: "Internal Server Error",
@@ -62,7 +62,6 @@ const createProduct = async (req, res) => {
   try {
     const { categoryName, description, sku, name, weight, width, length, height, image, price } = req.body;
     const idCategory = dataCategorys.findIndex((n) => n.categoryName === categoryName)
-    console.log(categoryName, description, sku, nameProduct, weight, width, length, height, image, price)
     const id = nanoid()
     const newProduct = {
       "id": id,

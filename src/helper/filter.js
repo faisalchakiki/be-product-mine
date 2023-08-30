@@ -13,7 +13,7 @@ function filterPages(data, page, limit) {
 
 function filterCategorys(data, filterCategory) {
   const filteredData = data.filter(item => item.categoryName === filterCategory);
-   return filteredData;
+  return filteredData;
 }
 
 function filterSearch(data, keyword) {
